@@ -1,4 +1,90 @@
-#app i{
+#app .card.brand i{
     color: #fff;
     padding: 10px;
+}
+
+#app .main-nav{
+    background-color: rgba(32, 32, 32, 0.753) !important;
+}
+
+#app ul.flotante{
+    top: 0px;
+    float: left;
+    position: fixed;
+    z-index: 999;
+    margin-top: 40px;
+    /* width: 100%; */
+    background-color: #00092fd4;
+    color: #fff;
+}
+
+#app ul.flotante div.input-group.mb-3{    
+    padding: 0px 16px; 
+}
+
+#app .nav-item.brand{
+    background-color: #00092f;
+}
+
+#app .nav-item.desplegar{
+    background-color: #00092fbd;
+}
+#app .nav-item.brand a{
+    color: #fff;
+}
+
+section[name="main-banner"] div.degradado
+{
+    margin: 0 -15px;
+    padding: 0 15px 15px 15px ;
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,41,0) 94%);
+}
+
+section[name="main-banner"]{
+    padding: 0px !important;
+    /* The image used */
+    background-image: url("../img/ParoNacional.jpg");
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+section{
+    padding-top:15px;
+}
+
+#app .card.etiqueta i{
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+#app .card.etiqueta{
+    color: #fff;
+    text-align: center;
+}
+
+#app .card.etiqueta.economia{
+    color: #fff;
+    background-color: rgba(168,208,21, 0.8);
+}
+
+#app .card.etiqueta.salud{
+    color: #fff;
+    background-color: rgba(0,169,199, 0.8);
+}
+
+#app .card.etiqueta.educacion{
+    color: #fff;
+    background-color: rgba(254,115,18, 0.8);
+}
+
+#app .card.etiqueta.seguridad{
+    color: #fff;
+    background-color: rgba(163,111,199, 0.8);
 }
