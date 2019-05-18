@@ -37,7 +37,7 @@ Vue.component('main-menu', {
             <li class="nav-item">
                 <a class="nav-link disabled" href="javascript:void()">Buscar</a>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Etiquetas..  " aria-describedby="button-addon2">
+                    <input type="text" class="form-control" placeholder="" aria-label="Etiquetas..  " aria-describedby="button-addon2">
                     <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
                     </div>
