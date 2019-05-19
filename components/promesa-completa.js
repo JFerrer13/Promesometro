@@ -1,7 +1,11 @@
-Vue.component('main-categorias', {
+Vue.component('propuesta-completa', {
     template: //html
     `
+    
+    <div class="row justify-content-md-center">
+        <div class="col-10 justify-content-md-center">
     <div class="row" name="propuesta-completa">
+    
         <div class="col-md-7">       
             <div  class="card">
                 <div class="card-body">     
@@ -40,7 +44,6 @@ Vue.component('main-categorias', {
                         <div class="col-md-12">
                             <h5><i class="fas fa-video"></i> Videos</h5>
                             <img width="160" height="90" src="..." class="img-thumbnail float-left" alt="..." onerror="this.src='img/error-image-generic.png';">
-                            
                         </div>
                         <div class="col-md-12">
                             <hr>
@@ -80,6 +83,8 @@ Vue.component('main-categorias', {
                 <hr>
             </div>
             </div>
+        </div>
+        </div>
         </div>
     </div>
     `,

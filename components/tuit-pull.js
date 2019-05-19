@@ -2,6 +2,8 @@ Vue.component('tuit-pull', {
     template: //html
     `      
     <section name="tuit-pull">
+    <div class="row justify-content-md-center">
+        <div class="col-10 justify-content-md-center">
         <div class="row">
           <div class="col-12 text-center"><h3>Los tweets</h3></div>
         </div>
@@ -10,7 +12,9 @@ Vue.component('tuit-pull', {
                 <div v-for="item in tweets" >
                     <tuit :usuario="item.usuario" :fecha="item.fecha" :tuitt="item.tuit" :tuit="item.tuit" :porcentaje="item.porcentaje" :href="item.url"></tuit> 
                 </div>
-            </div> 
+                </div> 
+                </div> 
+                </div> 
         </div>      
     </section>
     `,
