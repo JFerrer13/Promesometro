@@ -10,7 +10,7 @@ Vue.component('tuit-pull', {
         <div class="row">
             <div class="row">
                 <div v-for="item in tweets" >
-                    <tuit :usuario="item.usuario" :fecha="item.fecha" :tuitt="item.tuit" :tuit="item.tuit" :porcentaje="item.porcentaje" :href="item.url"></tuit> 
+                    <tuit :usuario="item.usuario" :fecha="item.fecha" :tuitt="item.tuit" :tuit="item.tuit" :porcentaje="item.porcentaje" :href="item.url" :lab="item.lab"></tuit> 
                 </div>
                 </div> 
                 </div> 
@@ -33,12 +33,23 @@ Vue.component('tuit-pull', {
                     let datos = JSON.parse(response.data.body);
                     console.log(datos);
                     for(var i = 0; i < datos.length; i++ ){
+                        let aux = "";
+                        datos[i][4].forEach(element => {
+                            aux +=  element + ",";                                         
+                        });
+                        if (aux){
+                            aux = aux.substring(0, aux.length -1);
+                        }
+                        /*for (let j = 0; j < datos[i][4].length; j++) {
+                            aux =  aux + "," + array[j];
+                        }*/                        
                         this.tweets.push({
                             usuario: datos[i][0],
                             fecha: datos[i][2],
                             tuit: datos[i][3],
                             porcentaje: Math.trunc(datos[i][5]),
                             url: "https://twitter.com/" + datos[i][0] + "/status/" + datos[i][1],
+                            lab: aux,
                         })
                     } 
                     console.log(this.tweets);
