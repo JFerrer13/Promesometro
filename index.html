@@ -17,69 +17,23 @@
 
 <body>
   <div class="container-fluid" id="app">
-      
       <section name="main-banner">
           <div class="degradado">
             <main-nav></main-nav>
             <h1 class="text-center">Bienvenido</h1>
             <p class="text-center">Dale un vistado a las promesas de los candiatos en:</p>
-            <div class="row">
-              <div class="col-md-3">
-                  <div class="card etiqueta economia">
-                      <div class="card-body">
-                          <h3><i class="fas fa-coins"></i></h3>
-                          <h3>Economía</h3>
-                          <div class="row">
-                            <div class="col-md-12">
-
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-3">
-                  <div class="card etiqueta educacion">
-                      <div class="card-body">
-                          <h3><i class="fas fa-coins"></i></h3>
-                          <h3>Educación</h3>
-                          <div class="row">
-                            <div class="col-md-12">
-                              
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-3">
-                  <div class="card etiqueta salud">
-                      <div class="card-body">
-                          <h3><i class="fas fa-coins"></i></h3>
-                          <h3>Salud</h3>
-                          <div class="row">
-                            <div class="col-md-12">
-                              
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-md-3">
-                  <div class="card etiqueta seguridad">
-                      <div class="card-body">
-                          <h3><i class="fas fa-coins"></i></h3>
-                          <h3>Seguridad</h3>
-                          <div class="row">
-                            <div class="col-md-12">
-                              
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            </dir>
+            <main-categorias></main-categorias>
           </div>
       </section>
       <main-nuevo></main-nuevo>
+      <section>
+        <div class="row">
+          <div class="col-12 text-center"><h3>En caliente</h3></div>
+        </div>
+        <div class="row">
+
+        </div>      
+      </section>
       <develope-info></develope-info>
   </div>
   <!-- Scripts -->
@@ -87,12 +41,14 @@
   <script src="script/Vue.js"></script>
   <script src="script/jquery.js"></script>
   <script src="script/axios.min.js"></script>
-
+  
   <!-- Componentes -->
   <script src="components/main-nav.js"></script>
+  <script src="components/main-categorias.js"></script>
   <script src="components/develope-info.js"></script>
   <script src="components/main-menu.js"></script>
   <script src="components/main-nuevo.js"></script>
+  
   <!-- El script -->
   <script src="script/scripts.js"></script>
 </body>

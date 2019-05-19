@@ -5,6 +5,7 @@
 
 #app .main-nav{
     background-color: rgba(32, 32, 32, 0.753) !important;
+    margin: 0 -15px;
 }
 
 #app ul.flotante{
@@ -35,7 +36,6 @@
 
 section[name="main-banner"] div.degradado
 {
-    margin: 0 -15px;
     padding: 0 15px 15px 15px ;
     background: rgb(2,0,36);
     background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,41,0) 94%);
@@ -52,10 +52,17 @@ section[name="main-banner"]{
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
+    margin: 0 -15px;
+}
+
+section:nth-child(odd){
+    background-color: #eee;
+    margin: 0 -15px;
 }
 
 section{
     padding-top:15px;
+    padding-bottom:15px;
 }
 
 #app .card.etiqueta i{
