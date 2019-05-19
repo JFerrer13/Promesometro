@@ -55,6 +55,9 @@ Vue.component('main-nuevo', {
         </div>
     </section>    
     `,
+    mounted(){
+        this.nuevaPromesa(8);
+    },
     data: function(){
         return {
             Titulo: "Promesómetro", 
@@ -67,6 +70,7 @@ Vue.component('main-nuevo', {
             }
         }
     },
+    
     methods:{
         NuevaPropuesta: function(){
             this.showform = !this.showform;
@@ -100,7 +104,29 @@ Vue.component('main-nuevo', {
             }).catch(e => {
                 alert("Algo salio mal :/ al guardar la promesa")
             });
-        }
+        },
+        nuevaPromesa(id) {
+            const url = " https://3jsqinb7kf.execute-api.us-east-1.amazonaws.com/dev/promesas";
+            let data = new FormData();
+            let Parametros = { 
+                "id": id,
+                "promesa": "Prueba",
+                "partido": "Axios",
+                "candidato": "Put"                       
+            };
+            
+            for (var key in Parametros) {                
+                data.append(key, (Parametros[key] == null || Parametros[key] == "null" ? "" : Parametros[key]));
+            }
+            let headers = {
+                'Access-Control-Allow-Origin': '*'
+            }      
+            //console.log(data);
+            
+            axios.put(url, Parametros, headers).then(response => {
+                console.log(response);
+            });
+         }
     
     }
 
