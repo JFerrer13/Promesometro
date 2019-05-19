@@ -1,5 +1,4 @@
-Vue.component('main-nuevo', {
-  //  props: ['visible'],
+Vue.component('main-nuevo', {  
     template: //html
     `
     <section name='main-nuevo'>
@@ -23,11 +22,11 @@ Vue.component('main-nuevo', {
         <div class="row justify-content-md-center" v-if="showform" style="margin-top:20px">
             <div class="col-4">
                 <label>Candidato</label>
-                <input type="text" class="form-control" name="inPromesa" v-model="dato.Promesa">
+                <input type="text" class="form-control" name="inCandidato" v-model="dato.Candidato">
             </div>
             <div class="col-4">
                 <label>Partido</label>
-                <input type="text" class="form-control" name="inCandidato" v-model="dato.Candidato">   
+                <input type="text" class="form-control" name="inPartido" v-model="dato.Partido">   
             </div>
         </div> 
         <div class="row justify-content-md-center" v-if="showform" style="margin-top:20px">
@@ -45,7 +44,7 @@ Vue.component('main-nuevo', {
             </div>
             <div class="col-4">
                 <label>Partido</label>
-                <input type="text" class="form-control" name="inCandidato" v-model="dato.Candidato">   
+                <input type="text" class="form-control" name="inCandidato"  >
             </div>
         </div>  
         <div class="row justify-content-md-center" style="margin-top: 25px">
@@ -56,10 +55,12 @@ Vue.component('main-nuevo', {
     </section>    
     `,
     mounted(){
-        this.nuevaPromesa(8);
+        //this.nuevaPromesa(8);
+        //this.consulta();
     },
-    data: function(){
+    data(){
         return {
+            Url: "https://3jsqinb7kf.execute-api.us-east-1.amazonaws.com/dev/",
             Titulo: "Promesómetro", 
             showform: false,
             dato: {
@@ -69,65 +70,42 @@ Vue.component('main-nuevo', {
                 Archivos: null,
             }
         }
-    },
-    
+    },    
     methods:{
-        NuevaPropuesta: function(){
+        NuevaPropuesta(){
             this.showform = !this.showform;
         },
-        CancelarIngreso: function(){
+        CancelarIngreso(){
             this.showform = !this.showform;
-            this.Promesa = "";
-            this.Partido = "";
-            this.Candidato = "";
-            this.Archivos = null;
+            this.dato.Promesa = "";
+            this.dato.Partido = "";
+            this.dato.Candidato = "";
+            this.dato.Archivos = null;
         }, 
-        consulta: function(){
-            var data = new FormData();
-            var Parametros = {};
-
-            Parametros["tabla"] = "promesas";
-            /*Parametros["Partido"] = this.Partido;
-            Parametros["Candidato"] = this.Candidato;
-            Parametros["Promesa"] = this.Promesa;*/
-
-            for (var key in Parametros) {
-                data.append(key, (Parametros[key] == null || Parametros[key] == "null" ? "" : Parametros[key]));
-            }
-            axios({
-                method: 'get',
-                url: 'https://3jsqinb7kf.execute-api.us-east-1.amazonaws.com/dev/obtenersecuencias',
-               // responseType: 'stream'
-            })
-            .then(response =>  {
-                console.log(response.data);
-            }).catch(e => {
-                alert("Algo salio mal :/ al guardar la promesa")
-            });
-        },
+        consulta(){                    
+            const url = "obtenersecuencias?tabla=promesas";
+            axios.get(this.Url + url).then(response => {
+                if(response.status == 200){
+                    let id = response.data;                    
+                    this.nuevaPromesa(id);                    
+                }                
+            }).catch(err =>  {
+                //alert("Algo salio mal");
+            });        
+        },        
         nuevaPromesa(id) {
-            const url = " https://3jsqinb7kf.execute-api.us-east-1.amazonaws.com/dev/promesas";
-            let data = new FormData();
+            const url = "promesas";            
             let Parametros = { 
                 "id": id,
-                "promesa": "Prueba",
-                "partido": "Axios",
-                "candidato": "Put"                       
-            };
-            
-            for (var key in Parametros) {                
-                data.append(key, (Parametros[key] == null || Parametros[key] == "null" ? "" : Parametros[key]));
-            }
-            let headers = {
-                'Access-Control-Allow-Origin': '*'
-            }      
-            //console.log(data);
-            
-            axios.put(url, Parametros, headers).then(response => {
-                console.log(response);
+                "promesa": this.dato.Promesa,
+                "partido": this.dato.Partido,
+                "candidato": this.dato.Candidato
+            };            
+            axios.put(this.Url + url, Parametros).then(response => {
+                if(response.status == 200 ){
+                    this.CancelarIngreso();
+                }                
             });
-         }
-    
+         }    
     }
-
 });
