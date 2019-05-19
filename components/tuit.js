@@ -1,7 +1,7 @@
-Vue.component('propuesta-corta', {
+Vue.component('tuit', {
     template: //html
     `      
-    <div  class="card" name="propuesta-corta">
+    <div  class="card" name="tuit">
         <div class="card-body">     
             <div class="row">
                 <div class="col-md-9">
