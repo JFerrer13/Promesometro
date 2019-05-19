@@ -8,7 +8,7 @@ Vue.component('tuit-pull', {
         <div class="row">
             <div class="row">
                 <div v-for="item in tweets" >
-                    <tuit :usuario="item.usuario" :fecha="item.fecha" :tuitt="item.tuit" :tuit="item.tuit" :porcentaje="item.porcentaje"></tuit> 
+                    <tuit :usuario="item.usuario" :fecha="item.fecha" :tuitt="item.tuit" :tuit="item.tuit" :porcentaje="item.porcentaje" :href="item.url"></tuit> 
                 </div>
             </div> 
         </div>      
@@ -34,6 +34,7 @@ Vue.component('tuit-pull', {
                             fecha: datos[i][2],
                             tuit: datos[i][3],
                             porcentaje: Math.trunc(datos[i][5]),
+                            url: "https://twitter.com/" + datos[i][0] + "/status/" + datos[i][1],
                         })
                     } 
                     console.log(this.tweets);
